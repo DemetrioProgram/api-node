@@ -28,7 +28,7 @@ module.exports = {
             res.send(createdUser);
             
         } catch (error) {
-            console.log('ERRO', error);
+            console.log('UserController save: ', error);
             res.status(400).send({ msg: 'Ops, ocorreu um erro.' });
         }
     },
@@ -58,7 +58,35 @@ module.exports = {
             res.send(updatedUser);
             
         } catch (error) {
-            console.log('ERRO', error);
+            console.log('UserController update: ', error);
+            res.status(400).send({ msg: 'Ops, ocorreu um erro.' });
+        }
+    },
+
+    /**
+     * Busca um User
+     * @param {*} req 
+     * @param {*} res 
+     * @returns 
+     */
+    async findById(req, res) {
+        const { id } = req.query;
+        
+        if (!id) {
+            res.status(400).send({ msg: 'Necessário dados para consulta' });
+            return;
+        }
+
+        try {
+
+            const updatedUser = await User.findById(
+                { _id: mongoose.Types.ObjectId(id) },
+            );
+
+            res.send(updatedUser);
+            
+        } catch (error) {
+            console.log('UserController findById: ', error);
             res.status(400).send({ msg: 'Ops, ocorreu um erro.' });
         }
     },

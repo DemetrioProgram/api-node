@@ -5,7 +5,8 @@
   "repository": "https://github.com/DemetrioProgram/api-node.git",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js --ignore __tests__",
     "test": "jest"
   },
   "keywords": [

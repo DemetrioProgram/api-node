@@ -16,7 +16,7 @@ describe('Starting tests on api...', () => {
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('_id');
     expect(res.body).toHaveProperty('username');
-    expect(res.body).toHaveProperty('username');
+    expect(res.body).toHaveProperty('password');
     expect(res.body).toHaveProperty('created_at');
     expect(res.body).toHaveProperty('updated_at');
 
@@ -36,7 +36,24 @@ describe('Starting tests on api...', () => {
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('_id');
     expect(res.body).toHaveProperty('username');
+    expect(res.body).toHaveProperty('password');
+    expect(res.body).toHaveProperty('created_at');
+    expect(res.body).toHaveProperty('updated_at');
+
+  });
+
+  it('Test route findById user', async () => {
+
+    const res = await request(server)
+    .get('/user/findById')
+    .query({ 
+      id: "your id",
+    });
+
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('_id');
     expect(res.body).toHaveProperty('username');
+    expect(res.body).toHaveProperty('password');
     expect(res.body).toHaveProperty('created_at');
     expect(res.body).toHaveProperty('updated_at');
 

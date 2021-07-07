@@ -7,4 +7,6 @@ router.post('/', userController.save);
 
 router.put('/', userController.update);
 
+router.get('/findById', userController.findById);
+
 module.exports = app => app.use('/user', router);
