@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js --ignore __tests__",
+    "dev": "nodemon index.js --ignore tests",
     "test": "jest"
   },
   "keywords": [
